@@ -1,36 +1,137 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ██████╗ ███████╗██████╗ ██████╗
+# ██╔══██╗██╔════╝██╔══██╗██╔══██╗
+# ██████╔╝█████╗  ██████╔╝██║  ██║
+# ██╔══██╗██╔══╝  ██╔═══╝ ██║  ██║
 
-## Getting Started
+> **No Equipment. V-Taper. Real Results.**
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js_15-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-0057FF?style=for-the-badge&logo=typescript&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-0057FF?style=for-the-badge&logo=supabase&logoColor=white)
+![Clerk](https://img.shields.io/badge/Clerk_Auth-000000?style=for-the-badge&logo=clerk&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## ▌WHAT IS REPD?
+
+**REPD** adalah aplikasi tracking workout berbasis web yang dirancang khusus untuk program **No Equipment V-Taper** — program latihan calisthenics pembentuk tubuh ideal tanpa alat gym.
+
+Catat setiap set, lacak berat badan, dan dokumentasikan progress fisik kamu — semuanya tersimpan di cloud dan bisa diakses dari mana saja.
+
+---
+
+## ▌FEATURES
+
+```
+✦ Login dengan Google (OAuth via Clerk)
+✦ Catat sesi workout harian
+✦ Log berat badan dengan chart progress
+✦ Upload foto progress
+✦ Data tersimpan per user di cloud
+✦ Responsive — mobile & desktop
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ▌TECH STACK
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Layer | Technology |
+|---|---|
+| **Framework** | Next.js 15 (App Router) |
+| **Language** | TypeScript |
+| **Auth** | Clerk (Google OAuth) |
+| **Database** | PostgreSQL via Supabase |
+| **Storage** | Supabase Storage |
+| **Styling** | CSS-in-JS (inline styles) |
+| **Deployment** | Vercel |
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## ▌PROJECT STRUCTURE
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+repd-app/
+├── app/
+│   ├── (auth)/
+│   │   └── login/          # Login page dengan Google OAuth
+│   ├── (dashboard)/
+│   │   ├── workout/        # Catat sesi workout
+│   │   ├── weight/         # Log berat badan
+│   │   └── photos/         # Upload foto progress
+│   ├── sso-callback/       # Handler OAuth redirect
+│   └── layout.tsx
+├── components/             # Reusable UI components
+├── lib/                    # Utilities & API calls
+└── public/
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## ▌RELATED REPOSITORY
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+> Backend API dibangun terpisah menggunakan **Golang + Gin**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[![repd-backend](https://img.shields.io/badge/→_repd--backend-0057FF?style=for-the-badge)](https://github.com/nazaabdillah/repd-backend)
+
+---
+
+## ▌LOCAL DEVELOPMENT
+
+**1. Clone repo**
+```bash
+git clone https://github.com/nazaabdillah/repd-app.git
+cd repd-app
+```
+
+**2. Install dependencies**
+```bash
+npm install
+```
+
+**3. Setup environment variables**
+```bash
+cp .env.example .env.local
+```
+
+Isi file `.env.local`:
+```env
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/login
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
+NEXT_PUBLIC_API_URL=http://localhost:8080
+```
+
+**4. Run development server**
+```bash
+npm run dev
+```
+
+Buka [http://localhost:3000](http://localhost:3000)
+
+---
+
+## ▌DEPLOYMENT
+
+Frontend di-deploy ke **Vercel** dengan auto-deploy dari branch `main`.
+
+```
+Production URL: https://repd-frontend.vercel.app
+```
+
+---
+
+## ▌AUTHOR
+
+**Naza Abdillah**
+Mahasiswa Sistem Informasi — Universitas Siliwangi (UNSIL)
+
+[![GitHub](https://img.shields.io/badge/GitHub-000000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/nazaabdillah)
+
+---
+
+> *"Track the reps. Trust the process."*
